@@ -1,6 +1,7 @@
 (ns datoms-say.dot
   (:require [clojure.spec.alpha :as s]
-            [clojure.string :as str]))
+            [clojure.string :as str]
+            [datoms-say.spec :as spec]))
 
 (defn graph->dot
   [{:keys [nodes edges attributes name] :or {name "G" attributes ""}}]
@@ -23,5 +24,5 @@
      "}"])))
 
 (s/fdef graph->dot
-        :args (s/cat :graph ::graph)
+        :args (s/cat :graph ::spec/graph)
         :ret  string?)
