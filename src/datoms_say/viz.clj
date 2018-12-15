@@ -85,7 +85,7 @@
 
 (defn- node-dot-attributes
   [analyzed-entity]
-  [(:entity-id analyzed-entity)
+  [(str (:entity-id analyzed-entity))
    (str "label=<"
         \newline
         (r/render (transform-entity analyzed-entity) nil)
