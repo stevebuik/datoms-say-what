@@ -113,12 +113,16 @@
   {:name       "Transaction Effects"
    :attributes (str "rankdir=LR; node [shape=none, style=\"rounded,filled\", fillcolor=\"" (:fill colors) "\"];")})
 
+(defn dot-tx-string
+  [analyzed-data]
+  (dot/graph->dot
+    (merge
+      graph-defaults
+      (transform analyzed-data))))
+
 (defn dotify-tx
   [analyzed-data]
-  (doto (dot/graph->dot
-         (merge
-          graph-defaults
-          (transform analyzed-data)))
+  (doto (dot-tx-string analyzed-data)
     (println)))
 
 (defn visualize-tx
