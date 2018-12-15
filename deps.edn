@@ -1,0 +1,4 @@
+{:paths ["src"]
+ :deps  {org.clojure/clojure      {:mvn/version "1.9.0-RC2"}
+         com.datomic/datomic-free {:mvn/version "0.9.5561.54"}
+         viz-cljc                 {:mvn/version "0.1.3"}}}
