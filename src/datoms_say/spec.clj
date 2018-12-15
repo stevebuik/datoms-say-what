@@ -5,7 +5,8 @@
 (def byte-array-class (type (byte-array 0)))
 
 (s/def ::long      #(instance? Long %))
-(s/def ::entity-id ::long)
+(s/def ::number      number?)
+(s/def ::entity-id ::number)
 
 ;; Value types. See http://docs.datomic.com/schema.html
 (s/def ::keyword keyword?)
