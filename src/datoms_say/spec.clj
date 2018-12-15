@@ -1,5 +1,6 @@
 (ns datoms-say.spec
-  (:require [clojure.spec.alpha :as s]))
+  (:require [clojure.spec.alpha :as s])
+  (:import (datomic.db Datum)))
 
 (def byte-array-class (type (byte-array 0)))
 
@@ -28,7 +29,8 @@
                                    :uuid ::uuid :uri ::uri :bytes ::bytes))
 (s/def ::added              boolean?)
 
-(s/def ::datoms-in          (s/+ (s/tuple ::entity-id ::attribute-id ::value ::transaction-id ::added)))
+(s/def ::datum #(instance? Datum %))
+(s/def ::datoms-in          (s/coll-of ::datum))
 
 (s/def ::referrer           (s/tuple ::entity-id ::attribute-id))
 (s/def ::referent           ::entity-id)
