@@ -102,5 +102,5 @@
      :references references}))
 
 (s/fdef analyze-tx
-        :args (s/cat :db-before #(instance? Db %) :db-after #(instance? Db %) :tx-data ::spec/datoms)
+        :args (s/cat :db-before #(instance? Db %) :db-after #(instance? Db %) :tx-data ::spec/datoms-in)
         :ret ::spec/analyzed)
